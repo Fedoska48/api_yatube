@@ -3,11 +3,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from yatube_api import api
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(api.urls))
+    path('api/v1/', include('api.urls', namespace='api'))
 ]
 
 

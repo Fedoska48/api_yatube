@@ -2,7 +2,9 @@ from rest_framework.routers import DefaultRouter
 
 from django.urls import include, path
 
-from yatube_api.api.views import PostViewSet, GroupViewSet, CommentViewSet
+from .views import PostViewSet, GroupViewSet, CommentViewSet
+
+app_name = 'api'
 
 router = DefaultRouter()
 
@@ -11,13 +13,13 @@ router.register('groups', GroupViewSet)
 router.register('comments', CommentViewSet)
 
 urlpatterns = [
-    path('api/v1/api-token-auth/', include(router.urls)),
-    path('api/v1/posts/', include(router.urls)),
-    path('api/v1/posts/{post_id}/', include(router.urls)),
-    path('api/v1/groups/', include(router.urls)),
-    path('api/v1/groups/{group_id}/', include(router.urls)),
-    path('api/v1/posts/{post_id}/comments/', include(router.urls)),
-    path('api/v1/posts/{post_id}/comments/{comment_id}/', include(router.urls))
+    path('api-token-auth/', include(router.urls)),
+    path('posts/', include(router.urls)),
+    path('posts/{post_id}/', include(router.urls)),
+    path('groups/', include(router.urls)),
+    path('groups/{group_id}/', include(router.urls)),
+    path('posts/{post_id}/comments/', include(router.urls)),
+    path('posts/{post_id}/comments/{comment_id}/', include(router.urls))
 ]
 
 # api/v1/api-token-auth/ (POST): передаём логин и пароль, получаем токен.
