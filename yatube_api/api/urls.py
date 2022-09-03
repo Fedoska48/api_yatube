@@ -2,24 +2,21 @@ from rest_framework.routers import DefaultRouter
 
 from django.urls import include, path
 
+from rest_framework.authtoken import views
 from .views import PostViewSet, GroupViewSet, CommentViewSet
 
 app_name = 'api'
 
 router = DefaultRouter()
 
-router.register('posts', PostViewSet)
-router.register('groups', GroupViewSet)
-router.register('comments', CommentViewSet)
+router.register(r'posts', PostViewSet)
+router.register(r'groups', GroupViewSet)
+router.register(r'posts/(?P<post_id>\d+)/comments', CommentViewSet,
+                basename='comment')
 
 urlpatterns = [
-    path('api-token-auth/', include(router.urls)),
-    path('posts/', include(router.urls)),
-    path('posts/{post_id}/', include(router.urls)),
-    path('groups/', include(router.urls)),
-    path('groups/{group_id}/', include(router.urls)),
-    path('posts/{post_id}/comments/', include(router.urls)),
-    path('posts/{post_id}/comments/{comment_id}/', include(router.urls))
+    path('api-token-auth/', views.obtain_auth_token),
+    path('', include(router.urls))
 ]
 
 # api/v1/api-token-auth/ (POST): передаём логин и пароль, получаем токен.
