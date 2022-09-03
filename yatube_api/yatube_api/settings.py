@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+<<<<<<< HEAD
 from rest_framework.authentication import TokenAuthentication
 
+=======
+>>>>>>> 139175f6e54839c4c91cf02918ab88339b134a82
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -40,9 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'posts',
+<<<<<<< HEAD
     'api',
     'rest_framework',
     'rest_framework.authtoken'
+=======
+>>>>>>> 139175f6e54839c4c91cf02918ab88339b134a82
 ]
 
 MIDDLEWARE = [
@@ -126,6 +132,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+<<<<<<< HEAD
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -136,3 +143,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+=======
+>>>>>>> 139175f6e54839c4c91cf02918ab88339b134a82
