@@ -13,9 +13,6 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ('id', 'text', 'pub_date', 'author', 'image', 'group')
         read_only_fields = ('author',)
-    #
-    # def perform_create(self, serializer):
-    #     serializer.save(author=self.request.user)
 
 
 class GroupSerializer(serializers.ModelSerializer):
